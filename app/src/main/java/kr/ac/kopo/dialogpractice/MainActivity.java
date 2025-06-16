@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 final String[] fooditems = {"냉면", "물냉면", "비빔냉면"};
                 AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
                 dlg.setTitle("니가 원하는거");
-                dlg.setItems(fooditems, new DialogInterface.OnClickListener() {
+                dlg.setSingleChoiceItems(fooditems, 1, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         btn1.setText(fooditems[which]);
@@ -48,6 +48,19 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
+//                dlg.setItems(fooditems, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        btn1.setText(fooditems[which]);
+//                        if (which == 0) {
+//                            fimg.setImageResource(R.drawable.cn);
+//                        } else if (which == 1) {
+//                            fimg.setImageResource(R.drawable.wcn);
+//                        } else {
+//                            fimg.setImageResource(R.drawable.bcn);
+//                        }
+//                    }
+//                });
 //                dlg.setMessage("wat is dis shiii");
                 dlg.setIcon(R.mipmap.ic_launcher);
                 dlg.setPositiveButton("닫 기", null);
