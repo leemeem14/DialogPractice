@@ -33,21 +33,41 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final String[] fooditems = {"냉면", "물냉면", "비빔냉면"};
+                final boolean[] selected = {true, false, false};
                 AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
                 dlg.setTitle("니가 원하는거");
-                dlg.setSingleChoiceItems(fooditems, 1, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        btn1.setText(fooditems[which]);
-                        if (which == 0) {
-                            fimg.setImageResource(R.drawable.cn);
-                        } else if (which == 1) {
-                            fimg.setImageResource(R.drawable.wcn);
-                        } else {
-                            fimg.setImageResource(R.drawable.bcn);
-                        }
-                    }
-                });
+                dlg.setMultiChoiceItems(fooditems, selected, new DialogInterface.OnMultiChoiceClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                                btn1.setText(fooditems[which]);
+                                if (which == 0) {
+                                    fimg.setImageResource(R.drawable.cn);
+                                } else if (which == 1) {
+                                    fimg.setImageResource(R.drawable.wcn);
+                                } else {
+                                    fimg.setImageResource(R.drawable.bcn);
+                                }
+                            }
+                        });
+//        btn1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                final String[] fooditems = {"냉면", "물냉면", "비빔냉면"};
+//                AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
+//                dlg.setTitle("니가 원하는거");
+//                dlg.setSingleChoiceItems(fooditems, 1, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        btn1.setText(fooditems[which]);
+//                        if (which == 0) {
+//                            fimg.setImageResource(R.drawable.cn);
+//                        } else if (which == 1) {
+//                            fimg.setImageResource(R.drawable.wcn);
+//                        } else {
+//                            fimg.setImageResource(R.drawable.bcn);
+//                        }
+//                    }
+//                });
 //                dlg.setItems(fooditems, new DialogInterface.OnClickListener() {
 //                    @Override
 //                    public void onClick(DialogInterface dialog, int which) {
@@ -62,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 //                    }
 //                });
 //                dlg.setMessage("wat is dis shiii");
-                dlg.setIcon(R.mipmap.ic_launcher);
+                        dlg.setIcon(R.mipmap.ic_launcher);
                 dlg.setPositiveButton("닫 기", null);
 //                dlg.setNegativeButton("취 소", new DialogInterface.OnClickListener() {
 //                    @Override
